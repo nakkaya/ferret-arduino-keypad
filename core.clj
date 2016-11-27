@@ -1,6 +1,6 @@
 (native-header "Keypad.h")
 
-(defmacro define [keys row-pins col-pins]
+(defmacro device [keys row-pins col-pins]
   (let [keys (map (fn [s] (map #(str "'" % "'") s)) keys)
         row-pin-cnt (count row-pins)
         col-pin-cnt (count col-pins)
