@@ -19,14 +19,14 @@
        (~'native-declare ~row-pins)
        (~'native-declare ~col-pins)
        (~'native-declare ~km-obj)
-       (~'cxx ~(str "__result = obj<Pointer>(&" km-obj-sym ");")))))
+       (~'cxx ~(str "__result = obj<pointer>(&" km-obj-sym ");")))))
 
 (defn read [kp]
-  "Keypad *keypad = kp.cast<Pointer>()->pointer<Keypad>();
+  "Keypad *keypad = pointer::to_pointer<Keypad>(kp);
    char key = keypad->getKey();
    if (key != NO_KEY)
-     __result = obj<Number>((number_t)key);")
+     __result = obj<number>(key);")
 
 (defn wait-key [kp]
-  "Keypad *keypad = kp.cast<Pointer>()->pointer<Keypad>();
-   __result = obj<Number>((number_t)keypad->waitForKey());")
+  "Keypad *keypad = pointer::to_pointer<Keypad>(kp);
+   __result = obj<number>(keypad->waitForKey());")

@@ -11,6 +11,8 @@ Available via Arduino library manager.
 
 #### Usage
 
+    (require '[ferret-arduino-keypad.core :as keypad])
+
     (def input (keypad/device
                 [[\1 \2 \3 \A]  ;; Keypad Layout
                  [\4 \5 \6 \B]
